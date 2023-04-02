@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/R-Testing/static/js/main.acf12cb6.js",
+    "main.js": "/R-Testing/static/js/main.c30e45df.js",
     "index.html": "/R-Testing/index.html",
-    "main.acf12cb6.js.map": "/R-Testing/static/js/main.acf12cb6.js.map"
+    "main.c30e45df.js.map": "/R-Testing/static/js/main.c30e45df.js.map"
   },
   "entrypoints": [
-    "static/js/main.acf12cb6.js"
+    "static/js/main.c30e45df.js"
   ]
 }
