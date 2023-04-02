@@ -1,32 +1,44 @@
-import React, { useState } from 'react';
-import { CgMenuRight } from 'react-icons/cg';
-import { FaTimes } from 'react-icons/fa';
-import { IconContext } from 'react-icons';
+import React , {useState} from "react";
+import { FaTimes } from "react-icons/fa";
+import { CgMenuRight } from "react-icons/cg";
+import { IconContext } from "react-icons";
 import {
-	Nav,
-	NavbarContainer,
-	NavLogo,
-	NavIcon,
-	MobileIcon,
-	NavMenu,
-	NavLinks,
-	NavItem,
-} from './NavbarStyles';
-import { navbarData } from '../../Data/NavbarData';
-
+  Nav,
+  NavbarContainer,
+  NavLogo,
+  NavIcon,
+  MobileIcon,
+  NavMenu,
+  NavLinks,
+  NavItem,
+} from "./NavbarStyles.js";
+import { useLocation, useHistory } from "react-router-dom";
+import { data } from "../../data/NavbarData";
 const Navbar = () => {
-	const [show, setShow] = useState(false);
+
+    const [show, setShow] = useState(false);
+
+	let history = useHistory();
+	let location = useLocation();
+
+	const handleClick = () => {
+		setShow(!show);
+	};
 
 	const scrollTo = (id) => {
 		const element = document.getElementById(id);
+
 		element.scrollIntoView({
 			behavior: 'smooth',
 		});
 	};
 
-	const closeMobileMenu = (id) => {
-		scrollTo(id);
+	const closeMobileMenu = (to, id) => {
+		if (id && location.pathname === '/') {
+			scrollTo(id);
+		}
 
+		history.push(to);
 		setShow(false);
 	};
 
@@ -35,16 +47,16 @@ const Navbar = () => {
 			<Nav>
 				<NavbarContainer>
 					<NavLogo to="/">
-						<NavIcon src="./images/logo.svg" alt="" />
-						esignify
+						<NavIcon src="./assets/logo.png" alt="logo" />
+						Delta
 					</NavLogo>
-					<MobileIcon onClick={() => setShow(!show)}>
+					<MobileIcon onClick={handleClick}>
 						{show ? <FaTimes /> : <CgMenuRight />}
 					</MobileIcon>
 					<NavMenu show={show}>
-						{navbarData.map((el, index) => (
+						{data.map((el, index) => (
 							<NavItem key={index}>
-								<NavLinks to="/" onClick={() => closeMobileMenu(el.to)}>
+								<NavLinks onClick={() => closeMobileMenu(el.to, el.id)}>
 									{el.text}
 								</NavLinks>
 							</NavItem>
@@ -54,6 +66,7 @@ const Navbar = () => {
 			</Nav>
 		</IconContext.Provider>
 	);
+
 };
 
 export default Navbar;

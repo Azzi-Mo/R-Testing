@@ -1,14 +1,5 @@
 import styled from 'styled-components';
-
-export const FeatureSection = styled.div`
-	padding: 140px;
-	position: relative;
-	margin: 0 auto;
-	@media screen and (max-width: 768px) {
-		padding: 70px 0;
-		margin-top: 10rem;
-	}
-`;
+import { motion } from 'framer-motion';
 
 export const FeatureTitle = styled.h2`
 	text-align: center;
@@ -22,67 +13,37 @@ export const FeatureTextWrapper = styled.div`
 	position: relative;
 	padding: 0 0 20px;
 	margin-bottom: 4rem;
-	&:before {
-		width: 40px;
-		height: 2px;
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		background-color: #ef4b6c;
-		transform: translateX(-50%);
-	}
 `;
 
 export const FeatureWrapper = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	/* flex-wrap: wrap; */
 	margin-top: 4rem;
-	grid-gap: 4rem;
-	@media screen and (max-width: 960px) {
+	grid-gap: 2rem;
+	@media screen and (max-width: 1100px) {
 		grid-template-columns: repeat(2, 1fr);
-		grid-column-gap: 0.4rem;
 		grid-row-gap: 3rem;
-		/* grid-gap: 3rem; */
 	}
 	@media screen and (max-width: 568px) {
 		grid-template-columns: repeat(1, 1fr);
 	}
 `;
 
-export const FeatureColumn = styled.div`
-	/* max-width: 33%; */
+export const FeatureColumn = styled(motion.div)`
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
 	align-items: center;
-	@media screen and (max-width: 960px) {
-		/* max-width: 50%; */
-	}
+	background: white;
+	padding: 10px;
+	box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+	border-radius: 20px;
 `;
 
 export const FeatureImageWrapper = styled.div`
 	margin-bottom: 1rem;
 	border-radius: 50%;
-	&.one {
-		background: linear-gradient(130deg, #9cb3ff 0%, #b0ffe9 100%);
-	}
-	&.two {
-		background: linear-gradient(220deg, #e7d1ff 0%, #8383ef 100%);
-	}
-	&.three {
-		background: linear-gradient(130deg, #ff8989 0%, #ffddc5 100%);
-	}
-	&.four {
-		background: linear-gradient(130deg, #ffa8e8 0%, #ffe6e6 100%);
-	}
-	&.five {
-		background: linear-gradient(130deg, #ffaf73 0%, #fffecc 100%);
-	}
-	&.six {
-		background: linear-gradient(130deg, #59dbb0 0%, #feffb5 100%);
-	}
+	border: 2px solid #000;
 	padding: 30px;
 `;
 export const FeatureName = styled.h3`

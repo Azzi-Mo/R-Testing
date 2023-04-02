@@ -2,14 +2,15 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const FormSection = styled.div`
-	padding: clamp(50px, 30vh, 100px) 0;
-	border-radius: 30px;
-	width: 100%;
+	/* color: #fff; */
+	padding: 160px 0;
+	/* background: ${({ inverse }) => (inverse ? '#101522' : '#fff')}; */
+	background: #101522;
 `;
 
 export const FormTitle = styled.h1`
-	margin-bottom: 4rem;
-	font-size: 3rem;
+	margin-bottom: 24px;
+	font-size: 48px;
 	line-height: 1.1;
 	font-weight: 600;
 `;
@@ -18,19 +19,21 @@ export const FormContainer = styled.div`
 	display: flex;
 `;
 export const FormColumn = styled.div`
-	margin-bottom: 15px;
-	padding-right: 15px;
-	padding-left: 15px;
-	padding: 0 15px;
+	/* margin-bottom: 15px; */
+	padding: 50px;
+	background: white;
+	border: 20px;
+	/* padding: ${({ small }) => (small ? '0 50px' : '0 15px')}; */
 	flex: 1;
-	max-width: 70%;
+	max-width: 60%;
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
 	flex-direction: column;
 	@media screen and (max-width: 768px) {
 		max-width: 100% !important;
 		flex-basis: 100%;
-		justify-content: center;
-		align-items: center;
 	}
 	img {
 		@media screen and (max-width: 768px) {
@@ -48,31 +51,9 @@ export const FormRow = styled.div`
 `;
 
 export const FormWrapper = styled.form`
-	max-width: 540px;
+	/* max-width: 540px; */
 	padding-top: 0;
 	width: 100%;
-`;
-
-export const FormButton = styled.button`
-	background-color: #ef4b6c;
-	width: 100%;
-	margin-top: 2rem;
-	height: 4rem;
-	font-size: 12px;
-	font-weight: 700;
-	letter-spacing: 0.75px;
-	text-transform: uppercase;
-	border-radius: 28px;
-	line-height: 30px;
-	box-shadow: 10px 16px 40px 0 rgb(255 84 117 / 46%);
-	text-align: center;
-	border: none;
-	color: #fff;
-	cursor: pointer;
-	&:hover {
-		background-color: #f06e88;
-		transition: background-color 0.4s ease-in;
-	}
 `;
 
 export const FormMessage = styled(motion.div)`
@@ -87,7 +68,7 @@ export const FormInputRow = styled.div`
 	justify-content: center;
 	flex-direction: column;
 	align-items: stretch;
-	margin-bottom: 2rem;
+	margin-bottom: 1.4rem;
 	> p {
 		font-size: 0.8rem;
 		margin-top: 0.5rem;
@@ -102,13 +83,47 @@ export const FormInput = styled.input`
 	height: 40px;
 	width: 100%;
 	border: none;
+	border-bottom: 1px solid #cfcfcf;
 	font-size: 1rem;
-	border-bottom: 1px solid #cecece;
 `;
 
 export const FormLabel = styled.label`
 	display: inline-block;
 	font-size: 0.9rem;
 	margin-bottom: 0.3rem;
-	color: #666;
+	color: #afafaf;
+`;
+export const FormImgWrapper = styled.div`
+	max-width: 555px;
+	display: flex;
+	justify-content: ${({ start }) => (start ? 'flex-start' : 'flex-end')};
+`;
+export const FormImg = styled.img`
+	padding-right: 0;
+	border: 0;
+	max-width: 100%;
+	vertical-align: middle;
+	display: inline-block;
+	max-height: 500px;
+`;
+
+export const FormButton = styled.button`
+	border-radius: 4px;
+	background: none;
+	margin-top: 1.5rem;
+	white-space: nowrap;
+	/* color: #fff; */
+	outline: none;
+	width: 100%;
+	font-size: 1.4rem;
+	padding: 5px 15px;
+	border: 2px solid black;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	&:hover {
+		color: white;
+		transition: background-color 0.4s ease-in;
+		background-color: black;
+	}
 `;

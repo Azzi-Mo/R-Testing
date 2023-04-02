@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Container } from '../../globalStyles';
+import { Container } from '../../globalStyle';
 import { Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
@@ -12,14 +12,16 @@ export const Nav = styled.nav`
 	font-size: 1.2rem;
 	position: absolute;
 	top: 0;
-	z-index: 99;
+	z-index: 50;
 	width: 100%;
+	transition: background-color 0.3s ease-in;
 `;
 
 export const NavbarContainer = styled(Container)`
 	display: flex;
 	justify-content: start;
 	height: 80px;
+	${Container}
 `;
 
 export const NavLogo = styled(Link)`
@@ -30,17 +32,17 @@ export const NavLogo = styled(Link)`
 	font-size: 2rem;
 	display: flex;
 	align-items: center;
-	z-index: 99;
+	z-index: 50;
 `;
 
 export const NavIcon = styled.img`
-	margin-right: 0.2rem;
+	margin-right: 1rem;
 	width: 3rem;
 `;
 
 export const MobileIcon = styled.div`
 	display: none;
-	z-index: 99;
+	z-index: 50;
 	@media screen and (max-width: 960px) {
 		display: block;
 		position: absolute;
@@ -70,7 +72,7 @@ export const NavMenu = styled.ul`
 		visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
 		transform: translateY(${({ show }) => (show ? '0' : '-10px')});
 		transition: opacity 0.5s ease;
-		background-color: #41d0e1;
+		background-color: #071c2f;
 	}
 	> li:first-child {
 		margin-left: auto;
@@ -88,7 +90,7 @@ export const NavItem = styled.li`
 	}
 `;
 
-export const NavLinks = styled(Link)`
+export const NavLinks = styled.span`
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -96,7 +98,8 @@ export const NavLinks = styled(Link)`
 	padding: 0.5rem 1rem;
 	height: 100%;
 	&:hover {
-		border-bottom: 2px solid #ec421d;
+		color: #c8c9d8;
+		transition: all 0.3s ease;
 	}
 	@media screen and (max-width: 960px) {
 		text-align: center;
@@ -104,7 +107,6 @@ export const NavLinks = styled(Link)`
 		width: 100%;
 		display: table;
 		&:hover {
-			border-bottom: none;
 			color: #4b59f7;
 			transition: all 0.3s ease;
 		}

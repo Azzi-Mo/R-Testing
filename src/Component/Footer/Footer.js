@@ -1,50 +1,62 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
 import {
-	FooterContainer,
-	FooterSubscription,
-	FooterSubHeading,
-	SocialMedia,
-	SocialMediaWrap,
-	SocialLogo,
+	FooterLinkItems,
+	FooterLinkTitle,
+	FooterLink,
+	FooterLogo,
 	SocialIcon,
-	WebsiteRights,
-	SocialIcons,
-	SocialIconLink,
+	FooterRights,
+	FooterSocialIcon,
+	FooterWrapper,
+	FooterAddress,
+	FooterColumn,
+	FooterGrid,
 } from './FooterStyles';
+import { footerData, footerSocialData } from '../../data/FooterData';
+import { Row, Section } from '../../globalStyle';
 
-const Footer = () => {
+function Footer() {
 	return (
-		<FooterContainer>
-			<FooterSubscription>
-				<SocialLogo to="/">
-					<SocialIcon src="./images/logo.svg" />
-					esignify
-				</SocialLogo>
-				<FooterSubHeading>Interested working with us?</FooterSubHeading>
-			</FooterSubscription>
+		<Section padding="4rem 0 2rem 0">
+			<FooterWrapper>
+				<FooterGrid justify="space-between">
+					<FooterColumn id="footerLogo">
+						<FooterLogo to="/">
+							<SocialIcon src="./assets/logo.png" />
+							Delta
+						</FooterLogo>
+						<FooterAddress>
+							69 Street, Delta Building, US Road, Los Angeles 123
+						</FooterAddress>
 
-			<SocialMedia>
-				<SocialMediaWrap>
-					<WebsiteRights>© Copyright 2022, Designify. All Rights Reserved</WebsiteRights>
-					<SocialIcons>
-						<SocialIconLink href="/" target="blank" aria-label="Facebook">
-							<FaFacebook />
-						</SocialIconLink>
-						<SocialIconLink href="/" target="blank" aria-label="Instagram">
-							<FaInstagram />
-						</SocialIconLink>
-						<SocialIconLink href="/" target="blank" aria-label="Twitter">
-							<FaTwitter />
-						</SocialIconLink>
-						<SocialIconLink href="/" target="blank" aria-label="Youtube">
-							<FaYoutube />
-						</SocialIconLink>
-					</SocialIcons>
-				</SocialMediaWrap>
-			</SocialMedia>
-		</FooterContainer>
+						<Row align="center" margin="auto  0 0 0" gap="1rem">
+							{footerSocialData.map((social, index) => (
+								<FooterSocialIcon
+									key={index}
+									href="/"
+									target="_blank"
+									aria-label={social.name}
+								>
+									{social.icon}
+								</FooterSocialIcon>
+							))}
+						</Row>
+					</FooterColumn>
+					{footerData.map((footerItem, index) => (
+						<FooterLinkItems key={index}>
+							<FooterLinkTitle>{footerItem.title}</FooterLinkTitle>
+							{footerItem.links.map((link, linkIndex) => (
+								<FooterLink key={linkIndex} to="/">
+									{link}
+								</FooterLink>
+							))}
+						</FooterLinkItems>
+					))}
+				</FooterGrid>
+				<FooterRights>Delta © 2020 </FooterRights>
+			</FooterWrapper>
+		</Section>
 	);
-};
+}
 
 export default Footer;

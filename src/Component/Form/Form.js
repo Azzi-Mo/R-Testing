@@ -5,26 +5,26 @@ import {
 	FormInput,
 	FormSection,
 	FormRow,
-	FormTitle,
 	FormLabel,
 	FormInputRow,
-	FormButton,
 	FormMessage,
+	FormButton,
+	FormTitle,
 } from './FormStyles';
-import { Container } from '../../globalStyles';
+import { Container } from '../../globalStyle';
 import validateForm from './validateForm';
 
 const Form = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
-	const [subject, setSubject] = useState('');
-	const [message, setMessage] = useState('');
+	const [password, setPassword] = useState('');
+	const [confirmPass, setConfirmPass] = useState('');
 	const [error, setError] = useState(null);
 	const [success, setSuccess] = useState(null);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const resultError = validateForm({ name, email, subject, message });
+		const resultError = validateForm({ name, email, password, confirmPass });
 
 		if (resultError !== null) {
 			setError(resultError);
@@ -32,10 +32,10 @@ const Form = () => {
 		}
 		setName('');
 		setEmail('');
-		setSubject('');
-		setMessage('');
+		setPassword('');
+		setConfirmPass('');
 		setError(null);
-		setSuccess('Message was sent!');
+		setSuccess('Application was submitted!');
 	};
 
 	const messageVariants = {
@@ -47,36 +47,38 @@ const Form = () => {
 		{ label: 'Name', value: name, onChange: (e) => setName(e.target.value), type: 'text' },
 		{ label: 'Email', value: email, onChange: (e) => setEmail(e.target.value), type: 'email' },
 		{
-			label: 'Subject',
-			value: subject,
-			onChange: (e) => setSubject(e.target.value),
+			label: 'Password',
+			value: password,
+			onChange: (e) => setPassword(e.target.value),
+			type: 'password',
 		},
 		{
-			label: 'Message',
-			value: message,
-			onChange: (e) => setMessage(e.target.value),
+			label: 'Confirm Password',
+			value: confirmPass,
+			onChange: (e) => setConfirmPass(e.target.value),
+			type: 'password',
 		},
 	];
-
 	return (
 		<FormSection>
 			<Container>
 				<FormRow>
-					<FormColumn>
-						<FormTitle>Sign Up</FormTitle>
+					<FormColumn small>
+						<FormTitle>Sign up</FormTitle>
 						<FormWrapper onSubmit={handleSubmit}>
 							{formData.map((el, index) => (
 								<FormInputRow key={index}>
-									<FormLabel>{el.label} *</FormLabel>
+									<FormLabel>{el.label}</FormLabel>
 									<FormInput
 										type={el.type}
+										placeholder={`Enter your ${el.label.toLocaleLowerCase()}`}
 										value={el.value}
 										onChange={el.onChange}
 									/>
 								</FormInputRow>
 							))}
 
-							<FormButton type="submit">Let's talk</FormButton>
+							<FormButton type="submit">Signup</FormButton>
 						</FormWrapper>
 						{error && (
 							<FormMessage

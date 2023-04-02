@@ -1,63 +1,46 @@
 export const heroOne = {
-	id: 'projects',
+	reverse: true,
+	inverse: true,
 	topLine: {
-		text: 'Illustration Design',
+		text: 'Founded in 2020',
 	},
-	headline: 'Redesigning prisma',
-	description: 'Designing various vectors to match the themes of our clients. Find out more! ',
-	buttonLabel: 'View Project',
+	headline: "We've been in business for 2 years",
+	description: 'We have designed and implemented the best cloud security solutions',
+	buttonLabel: 'Find More',
 	imgStart: 'start',
-	img: './images/content/rocket.svg',
-	backgroundColor: 'linear-gradient(	150deg,#c99fff -20%,#4a4eff)',
+	img: './assets/svg/Deal.svg',
 	start: 'true',
 };
 
 export const heroTwo = {
-	reverse: true,
+	reverse: false,
+	inverse: false,
 	topLine: {
-		text: 'Development and Design',
+		text: 'Designed & Developed',
 	},
-	headline: 'Beautiful Landing Page for Lifecycle',
-	description:
-		"Our team worked for various clients, I don't know what else to write here, it's not my job!",
+	headline: 'The best practices',
+	description: 'Our clients have had the best experience working with us',
 	buttonLabel: 'View Project',
 
 	linkTo: '/more',
 	imgStart: 'start',
-	img: './images/content/landing-page.svg',
-	backgroundColor: 'linear-gradient(	140deg	,#ffaf73 30%,#fffecc 120%)',
-
+	img: './assets/svg/Connection.svg',
 	start: 'true',
 };
 
 export const heroThree = {
+	reverse: true,
+	inverse: true,
 	topLine: {
-		text: 'Development',
+		text: 'Highly reputed brand',
 	},
-	headline: "Innovative API's ",
+	headline: 'Why us? ',
 	description:
-		'Our team has amazing developers that can turn any design sketches and ideas into a fully functioning product.',
+		'Our 9 year experience have allowed us to use the most innovative technologies and methodologies',
 	buttonLabel: 'View Project',
 
 	linkTo: '/download',
 	imgStart: '',
-	backgroundColor: 'linear-gradient(104deg, rgba(151,147,218,1) 0%, rgba(183,137,205,1) 100%)',
-	img: './images/content/lost.svg',
-	start: 'true',
-};
-
-export const heroFour = {
-	reverse: true,
-	topLine: {
-		text: 'Photography and Development',
-	},
-	headline: 'New ECommerce systems',
-	description: 'We take your products and make them look better than they already are!',
-	buttonLabel: 'View Project',
-
-	linkTo: '/more',
-	imgStart: '',
-	backgroundColor: 'linear-gradient(225deg,#0abac2,#b2de94)',
-	img: './images/content/ecommerce.svg',
+	img: './assets/svg/ChartUp.svg',
 	start: 'true',
 };
